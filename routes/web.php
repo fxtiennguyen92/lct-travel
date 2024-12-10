@@ -5,16 +5,11 @@ use App\Http\Controllers\ProductSetController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TaxController;
+use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('web.layouts.index');
-});
+Route::get('/', [WebController::class, 'home'])->name('home');
 
-
-Route::get('/admin', function () {
-    return view('web.template.index');
-});
 
 Route::middleware([
     'auth:sanctum',
